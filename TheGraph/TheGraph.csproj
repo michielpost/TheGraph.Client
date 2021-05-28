@@ -2,10 +2,25 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>nullable;CS8600;CS8601;CS8602;CS8603;CS8625;CS8613;CS8610</WarningsAsErrors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Authors>Michiel Post</Authors>
+    <Version>0.0.1</Version>
+    <Product>The Graph API Client</Product>
+    <PackageProjectUrl>https://github.com/michielpost/TheGraph.Client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/michielpost/TheGraph.Client</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageTags>thegraph graphql</PackageTags>
+    <Description>The Graph API Client</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="GraphQL.Client" Version="3.2.3" />
+    <PackageReference Include="GraphQL.Client.Serializer.SystemTextJson" Version="3.2.3" />
   </ItemGroup>
 
 </Project>
