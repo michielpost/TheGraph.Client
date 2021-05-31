@@ -13,12 +13,11 @@ namespace TheGraph.Tests
         public async Task IndexingStatusForCurrentVersion()
         {
             var client = new TheGraphClient("michielpost/graph-bookstore");
-
             var result = await client.IndexingStatusForCurrentVersion();
 
             Assert.IsTrue(result.Errors == null);
-            Assert.IsTrue(result.Data.indexingStatusForCurrentVersion?.chains.Any() ?? false);
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(result.Data.indexingStatusForCurrentVersion?.chains.First().chainHeadBlock?.number));
+            Assert.IsTrue(result.Data.IndexingStatusForCurrentVersion?.Chains.Any() ?? false);
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(result.Data.IndexingStatusForCurrentVersion?.Chains.First().ChainHeadBlock?.Number));
         }
 
         [TestMethod]
@@ -29,7 +28,7 @@ namespace TheGraph.Tests
             var result = await client.IndexingStatusForPendingVersion();
 
             Assert.IsTrue(result.Errors == null);
-            Assert.IsNull(result.Data.indexingStatusForPendingVersion);
+            Assert.IsNull(result.Data.IndexingStatusForPendingVersion);
         }
 
 

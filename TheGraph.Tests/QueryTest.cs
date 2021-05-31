@@ -1,20 +1,29 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace TheGraph.Tests
 {
     class GravatarResultModel
     {
-        public List<GravatarModel> gravatars { get; set; } = new List<GravatarModel>();
+        [JsonPropertyName("gravatars")]
+        public List<GravatarModel> Gravatars { get; set; } = new List<GravatarModel>();
     }
     class GravatarModel
     {
-        public string? id { get; set; }
-        public string? owner { get; set; }
-        public string? displayName { get; set; }
-        public string? imageUrl { get; set; }
+        [JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        [JsonPropertyName("owner")]
+        public string? Owner { get; set; }
+
+        [JsonPropertyName("displayName")]
+        public string? DisplayName { get; set; }
+
+        [JsonPropertyName("imageUrl")]
+        public string? ImageUrl { get; set; }
 
     }
     [TestClass]
@@ -23,7 +32,7 @@ namespace TheGraph.Tests
         [TestMethod]
         public async Task GetDyanmic()
         {
-            var client = new TheGraphClient("https://api.thegraph.com/subgraphs/name/michielpost/graph-bookstore");
+            var client = new TheGraphClient("michielpost/graph-bookstore");
 
             string query = @"
                         {
@@ -60,8 +69,8 @@ namespace TheGraph.Tests
             var result = await client.SendQueryAsync<GravatarResultModel>(query);
 
             Assert.IsTrue(result.Errors == null);
-            Assert.IsTrue(result.Data.gravatars.Any());
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(result.Data.gravatars.First().id));
+            Assert.IsTrue(result.Data.Gravatars.Any());
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(result.Data.Gravatars.First().Id));
         }
     }
 }

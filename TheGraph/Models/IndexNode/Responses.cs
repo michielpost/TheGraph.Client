@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace TheGraph.Models.IndexNode
@@ -10,11 +11,13 @@ namespace TheGraph.Models.IndexNode
 
     public class IndexingStatusForCurrentVersionResponse
     {
-        public SubgraphIndexingStatus? indexingStatusForCurrentVersion { get; set; }
+        [JsonPropertyName("indexingStatusForCurrentVersion")]
+        public SubgraphIndexingStatus? IndexingStatusForCurrentVersion { get; set; }
     }
 
     public class IndexingStatusForPendingVersionResponse
     {
-        public SubgraphIndexingStatus? indexingStatusForPendingVersion { get; set; }
+        [JsonPropertyName("indexingStatusForPendingVersion")]
+        public SubgraphIndexingStatus? IndexingStatusForPendingVersion { get; set; }
     }
 }
