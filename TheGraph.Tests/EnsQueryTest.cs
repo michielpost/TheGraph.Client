@@ -14,7 +14,6 @@ namespace TheGraph.Tests
         public async Task GetDomainOwner()
         {
             var client = new EnsClient();
-
             var result = await client.GetDomainOwner("concord");
 
             Assert.AreEqual("0xbcbd4885ee8b2b74249c5ad9b8b668fb256a51b1", result);

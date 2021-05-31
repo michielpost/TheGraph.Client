@@ -26,6 +26,7 @@ namespace TheGraph.Tests
         public string? ImageUrl { get; set; }
 
     }
+
     [TestClass]
     public class QueryTest
     {
