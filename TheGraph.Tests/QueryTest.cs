@@ -44,7 +44,7 @@ namespace TheGraph.Tests
         [TestMethod]
         public async Task GetTyped()
         {
-            var client = new TheGraphClient("https://api.thegraph.com/subgraphs/name/michielpost/graph-bookstore");
+            var client = new TheGraphClient("michielpost/graph-bookstore");
 
             string query = @"
                         {
